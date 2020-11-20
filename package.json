@@ -1,0 +1,38 @@
+{
+  "name": "json-schema-applier",
+  "version": "0.2.17",
+  "description": "Apply a given JSON Schema to a given object creating a new instance that conforms the schema used",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcoASilva/json-schema-applier.git"
+  },
+  "keywords": [
+    "json",
+    "schema",
+    "apply"
+  ],
+  "author": "Marco Silva <marco.up.bsi@gmail.com> peker.com.br)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/MarcoASilva/json-schema-applier/issues"
+  },
+  "homepage": "https://github.com/MarcoASilva/json-schema-applier#readme",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "engineStrict": true,
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-bump": "^3.2.0",
+    "gulp-uglify": "^3.0.2",
+    "readable-stream": "^3.6.0"
+  }
+}
