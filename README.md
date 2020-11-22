@@ -13,23 +13,26 @@ npm i json-schema-applier
 
 ## Description
 
-json-schema-applier is a package for applying a json schema to given object instance and it does 2 things: 
+json-schema-applier is a package for applying a json schema to a given object instance and it does 2 things: 
 
 __CREATE FIELDS__: For fields that are missing in the object instance:
 
   * Creates required fields
   * Creates fields that have a default value
-    * You can override the default property in the field schema with a function that receive the instance object as parameter and should return the default value for that field
+    * You can override the default property in the field schema with a function that receives the instance object as parameter and should return the default value for that field
 
-__CAST FIELDS__: For fields that exists in the object instance:
+__CAST FIELDS__: For fields that exist in the object instance:
   * Casts value accordingly
     * You can overwrite global map config object to cast any instance field value to anything that you want based on the field type.
     * You can create custom overwrites for each field independtly of their types
 
 __All according to the json schema passed as parameter__
 
+---
 
-## Usage - Fields creation
+# Usage 
+
+## Create Fields
 
 ### Create defaults
 
@@ -127,11 +130,9 @@ console.log(validPerson);
 { name: 'Guest', dateOfBirth: '1900-01-01', age: 120 }
 ```
 
+### Create required
 
-
-### Create required fields
-
-json-schema-applier will fill required fields that are missing from the object, based first, on the overwrite object and fallback to global config object (overwritable too). So overwrites > global as global is the default "from/to" mapping object.
+json-schema-applier will fill required fields that are missing from the object based, first, on the overwrite object and fallback to global config object (overwritable too). So overwrites > global as global is the default "from/to" mapping object.
 
 GLOBAL config (default mapping):
 
@@ -200,10 +201,62 @@ console.log(validPerson);
 { name: 'Guest', age: 25, id: 0 }
 ```
 
+## Cast Fields
 
+```javascript
+const jsonSchemaApplier = require("../lib");
 
+const peopleSchema = {
+  $schema: "http://json-schema.org/draft-07/schema",
+  $id: "http://example.com/example.json",
+  type: "object",
+  title: "Person schema",
+  description: "The root schema comprises the entire JSON document.",
+  default: {},
+  examples: [
+    {
+      name: "Rose Mary",
+			age: 30
+    }
+  ],
+  required: [],
+  properties: {
+    id: {
+      $id: "#/properties/id",
+      type: "integer",
+      title: "The id schema",
+      description: "An explanation about the purpose of this instance.",
+      examples: [123]
+    },    
+    name: {
+      $id: "#/properties/name",
+      type: "string",
+      default: "Guest",
+      examples: ["John Doe"]
+    },
+    age: {
+      $id: "#/properties/age",
+      type: "integer",
+      examples: [25],
+      default: "25"
+    },
+    accountBalance: {
+      $id: "#/properties/age",
+      type: "number",
+      examples: [1, 9.01],
+      default: 0
+    }
+  }
+};
 
+const person = {id: "1", name: "John Doe", age: 30, accountBalance: "2536.72"}
 
+validPerson = jsonSchemaApplier(person, peopleSchema);
+
+console.log(validPerson);
+// OUTPUTS:
+{ id: 1, name: 'John Doe', age: 30, accountBalance: 2536.72 }
+```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
