@@ -1,4 +1,4 @@
-const jsonSchemaApplier = require("./lib");
+const jsonSchemaApplier = require("../lib");
 
 const peopleSchema = {
   $schema: "http://json-schema.org/draft-07/schema",
