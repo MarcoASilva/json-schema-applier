@@ -1,6 +1,6 @@
 {
   "name": "json-schema-applier",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Apply a given JSON Schema to a given object creating a new instance that conforms the schema used",
   "main": "dist/index.js",
   "directories": {
