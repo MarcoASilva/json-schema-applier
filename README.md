@@ -1,6 +1,6 @@
-# JSON-SCHEMA-APPLIER
+# json-schema-applier
 
-json-schema-applier is a NPM Package for applying (enforcing) objects to be schema compliant.
+json-schema-applier is an NPM Package for applying (enforcing) objects to be schema compliant.
 
 ## Installation
 
@@ -13,18 +13,18 @@ npm i json-schema-applier
 
 ## Description
 
-json-schema-applier is package for applying a json schema to given object instance and it does 3 things: 
+json-schema-applier is a package for applying a json schema to given object instance and it does 2 things: 
 
-For fields that are missing in the object instance:
+__CREATE FIELDS__: For fields that are missing in the object instance:
 
-* Creates required fields
-* Creates fields that have a default value
-  * You can override the default property in the field schema with a function that receive the instance object as parameter and should return the default value for that field
+  * Creates required fields
+  * Creates fields that have a default value
+    * You can override the default property in the field schema with a function that receive the instance object as parameter and should return the default value for that field
 
-For fields that exists in the object instance:
-* Casts value accordingly
-  * You can overwrite global map config object to cast any instance field value to anything that you want based on the field type.
-  * You can create custom overwrites for each field independtly of their types
+__CAST FIELDS__: For fields that exists in the object instance:
+  * Casts value accordingly
+    * You can overwrite global map config object to cast any instance field value to anything that you want based on the field type.
+    * You can create custom overwrites for each field independtly of their types
 
 __All according to the json schema passed as parameter__
 
