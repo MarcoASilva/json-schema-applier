@@ -28,13 +28,11 @@ __CAST FIELDS__: For fields that exist in the object instance:
 
 __All according to the json schema passed as parameter__
 
----
+## Usage 
 
-# Usage 
+### Create Fields
 
-## Create Fields
-
-### Create defaults
+#### Create defaults
 
 json-schema-applier will create or populate fields that have a default value on its schema
 
@@ -130,7 +128,7 @@ console.log(validPerson);
 { name: 'Guest', dateOfBirth: '1900-01-01', age: 120 }
 ```
 
-### Create required
+#### Create required
 
 json-schema-applier will fill required fields that are missing from the object based, first, on the overwrite object and fallback to global config object (overwritable too). So overwrites > global as global is the default "from/to" mapping object.
 
@@ -201,7 +199,7 @@ console.log(validPerson);
 { name: 'Guest', age: 25, id: 0 }
 ```
 
-## Cast Fields
+### Cast Fields
 
 ```javascript
 const jsonSchemaApplier = require("../lib");
