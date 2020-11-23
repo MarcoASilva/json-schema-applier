@@ -24,7 +24,7 @@ __CREATE FIELDS__: For fields that are missing in the object instance:
 __CAST FIELDS__: For fields that exist in the object instance:
   * Casts value accordingly
     * You can overwrite global map config object to cast any instance field value to anything that you want based on the field type.
-    * You can create custom overwrites for each field independtly of their types
+    * You can create custom overwrites for each field independently of their types
 
 __All according to the json schema passed as parameter__
 
@@ -49,7 +49,7 @@ const peopleSchema = {
   examples: [
     {
       name: "Rose Mary",
-			age: 30
+      age: 30
     }
   ],
   required: [],
